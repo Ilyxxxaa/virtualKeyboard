@@ -17,3 +17,5 @@ class Control<NodeType extends HTMLElement = HTMLElement> {
     this.node.remove();
   }
 }
+
+export default Control;
