@@ -1,13 +1,12 @@
 import Key from './key';
 
-class KeyLang extends Key {
+class KeyBackspace extends Key {
   protected input() {
     const state = this.state;
     state.data = {
       ...state.data,
-      langIndex: (state.data.langIndex + 1) % state.languages.length,
+      content: state.data.content.slice(0, -1),
     };
   }
 }
-
-export default KeyLang;
+export default KeyBackspace;

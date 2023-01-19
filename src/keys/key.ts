@@ -5,7 +5,7 @@ class Key extends Control {
   // onInput: (char: string) => void;
   private data: string;
 
-  constructor(parentNode: HTMLElement, data: string, private state: KeyboardState) {
+  constructor(parentNode: HTMLElement, data: string, protected state: KeyboardState) {
     super(parentNode);
     this.node.textContent = data;
     this.data = data;

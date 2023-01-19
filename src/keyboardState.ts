@@ -1,3 +1,4 @@
+import { board, boardEn } from './common/langs';
 import Signal from './common/signal';
 
 export interface IKeyboardData {
@@ -6,6 +7,7 @@ export interface IKeyboardData {
 }
 
 class KeyboardState {
+  public languages = [board, boardEn];
   private _data: IKeyboardData;
   get data() {
     return this._data;
