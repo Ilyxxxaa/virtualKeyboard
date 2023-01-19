@@ -10,7 +10,7 @@ class Key extends Control {
     this.node.textContent = data;
     this.data = data;
     // this.onInput = onInput;
-
+    // 3.11
     this.node.onmousedown = () => {
       this.down();
     };
@@ -26,6 +26,7 @@ class Key extends Control {
 
     this.node.onmouseleave = () => {
       this.node.classList.remove('keyboard__key-hover');
+      this.node.classList.remove('keyboard__key-down');
     };
   }
 

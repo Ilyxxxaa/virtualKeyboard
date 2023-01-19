@@ -1,0 +1,17 @@
+export const functional = {
+  Tab: 'Tab',
+  CapsLock: 'Caps',
+  Enter: '\n',
+  ShiftLeft: 'Shift',
+  ArrowUp: '',
+  ShiftRight: 'Shift',
+  ControlLeft: 'Ctrl',
+  AltLeft: 'Alt',
+  Space: '',
+  AltRight: 'Alt',
+  ControlRight: 'Ctrl',
+  ArrowLeft: '',
+  ArrowDown: '',
+  ArrowRight: '',
+  Backspace: 'Backspace',
+};
