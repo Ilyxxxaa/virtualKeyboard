@@ -1,16 +1,7 @@
 import Control from './common/control';
 import Board from './board';
 import Output from './output';
-
-const board = {
-  Digit1: '1',
-  Digit2: '2',
-};
-
-const boardEn = {
-  Digit1: 'a',
-  Digit2: 'b',
-};
+import { board } from './common/langs';
 
 class Keyboard extends Control {
   private board: Board;
