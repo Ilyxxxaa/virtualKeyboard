@@ -3,7 +3,7 @@ import KeyboardState from './keyboardState';
 import Key from './keys/key';
 import KeyBackspace from './keys/keyBackspace';
 import KeyLang from './keys/keyLang';
-import KeyCapsLock from './keys/keyLang';
+import KeyCapsLock from './keys/keyCapsLock';
 import KeyShift from './keys/keyShift';
 
 const classMap: Record<string, typeof Key> = {

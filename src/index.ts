@@ -1,5 +1,6 @@
 import KeyboardState from './keyboardState';
 import Keyboard from './keyboard';
+import './style.css';
 
 const state = new KeyboardState({
   content: '',

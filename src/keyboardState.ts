@@ -23,6 +23,7 @@ class KeyboardState {
 
   constructor(initialData: IKeyboardData) {
     this._data = initialData;
+    console.log(this.languages);
   }
 
   public onChange = new Signal<IKeyboardData>();

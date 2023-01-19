@@ -19,13 +19,15 @@ class Keyboard extends Control {
       const currentBoard = state.languages[data.langIndex];
       if (data.shift) {
         this.board.setLanguage(currentBoard.shift);
-        console.log('shiftKey');
-      } else if (data.caps) {
+        console.log('Перестроилось на шифт');
+      }
+      if (data.caps) {
         this.board.setLanguage(currentBoard.caps);
-        console.log('capsKey');
-      } else {
+        console.log('Перестроилось на капс');
+      }
+      if (!data.caps && !data.shift) {
         this.board.setLanguage(currentBoard.base);
-        console.log('key');
+        console.log('Перестроилось на обычный');
       }
     };
     state.onChange.add(update);
