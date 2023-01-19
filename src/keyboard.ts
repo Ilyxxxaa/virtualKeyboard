@@ -3,22 +3,35 @@ import Board from './board';
 import Output from './output';
 // import { board } from './common/langs';
 // import { boardEn } from './common/langs';
-import KeyboardState from './keyboardState';
+import KeyboardState, { IKeyboardData } from './keyboardState';
+import layout from './langs/layout';
 
 class Keyboard extends Control {
   private board: Board;
   private output: Output;
 
-  private langIndex = 0;
+  // private langIndex = 0;
 
   constructor(parentNode: HTMLElement, state: KeyboardState) {
     super(parentNode);
-    state.onChange.add((data) => {
+    const update = (data: IKeyboardData) => {
       this.output.content = data.content;
-      this.board.setLanguage(state.languages[data.langIndex]);
-    });
+      const currentBoard = state.languages[data.langIndex];
+      if (data.shift) {
+        this.board.setLanguage(currentBoard.shift);
+        console.log('shiftKey');
+      } else if (data.caps) {
+        this.board.setLanguage(currentBoard.caps);
+        console.log('capsKey');
+      } else {
+        this.board.setLanguage(currentBoard.base);
+        console.log('key');
+      }
+    };
+    state.onChange.add(update);
     this.output = new Output(this.node);
-    this.board = new Board(this.node, state.languages[this.langIndex], state);
+    this.board = new Board(this.node, layout, state);
+
     // this.board.onNextLanguage = () => {
     //   this.langIndex = (this.langIndex + 1) % this.languages.length;
     //   this.board.setLanguage(this.languages[this.langIndex]);
@@ -37,6 +50,8 @@ class Keyboard extends Control {
       console.log(e.code);
       this.board.handleUp(e.code);
     });
+
+    update(state.data);
   }
 }
 

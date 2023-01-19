@@ -1,13 +1,16 @@
-import { board, boardEn } from './common/langs';
+import boardEn from './langs/en';
+import boardRu from './langs/ru';
 import Signal from './common/signal';
 
 export interface IKeyboardData {
   content: string;
   langIndex: number;
+  shift: boolean;
+  caps: boolean;
 }
 
 class KeyboardState {
-  public languages = [board, boardEn];
+  public languages = [boardRu, boardEn];
   private _data: IKeyboardData;
   get data() {
     return this._data;

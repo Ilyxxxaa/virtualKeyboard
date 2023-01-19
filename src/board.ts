@@ -3,28 +3,45 @@ import KeyboardState from './keyboardState';
 import Key from './keys/key';
 import KeyBackspace from './keys/keyBackspace';
 import KeyLang from './keys/keyLang';
+import KeyCapsLock from './keys/keyLang';
+import KeyShift from './keys/keyShift';
+
+const classMap: Record<string, typeof Key> = {
+  Backspace: KeyBackspace,
+  ShiftLeft: KeyShift,
+  ShiftRight: KeyShift,
+  CapsLock: KeyCapsLock,
+  Lang: KeyLang,
+};
 
 class Board extends Control {
   private keyMap: Record<string, Key> = {};
-  onNextLanguage: () => void;
-  onBackspace: () => void;
+  // onNextLanguage: () => void;
+  // onBackspace: () => void;
 
-  constructor(parentNode: HTMLElement, boardConfig: Record<string, string>, state: KeyboardState) {
+  constructor(parentNode: HTMLElement, layoutConfig: Array<string[]>, state: KeyboardState) {
     super(parentNode);
-    for (let keyCode in boardConfig) {
-      let key: Key;
-      switch (keyCode) {
-        case 'Lang':
-          key = new KeyLang(this.node, boardConfig[keyCode], state);
-          break;
-        case 'Backspace':
-          key = new KeyBackspace(this.node, boardConfig[keyCode], state);
-          break;
-        default:
-          key = new Key(this.node, boardConfig[keyCode], state);
-      }
-      this.keyMap[keyCode] = key;
-    }
+    // for (let keyCode in boardConfig) {
+    // let key: Key;
+    // switch (keyCode) {
+    //   case 'Lang':
+    //     key = new KeyLang(this.node, boardConfig[keyCode], state);
+    //     break;
+    //   case 'Backspace':
+    //     key = new KeyBackspace(this.node, boardConfig[keyCode], state);
+    //     break;
+    //   default:
+    //     key = new Key(this.node, boardConfig[keyCode], state);
+    // }
+
+    // }
+    layoutConfig.forEach((row) => {
+      row.forEach((keyCode) => {
+        const KeyConstructor = classMap[keyCode] || Key;
+        const key = new KeyConstructor(this.node, keyCode, state);
+        this.keyMap[keyCode] = key;
+      });
+    });
   }
 
   setLanguage(boardConfig: Record<string, string>) {
