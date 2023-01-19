@@ -13,7 +13,7 @@ class Output extends Control {
   // }
 
   constructor(parentNode: HTMLElement) {
-    super(parentNode);
+    super(parentNode, 'div', 'keyboard__output');
     // this._content = '';
   }
 }

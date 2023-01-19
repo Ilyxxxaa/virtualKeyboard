@@ -1,0 +1,19 @@
+.keyboard__row {
+  display: flex;
+}
+
+.keyboard__key {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 30px;
+  margin: 5px;
+}
+
+.keyboard__key-down {
+  transform: scale(0.9);
+}
+
+.keyboard__key-hover {
+  background-color: #222;
+}
