@@ -1,4 +1,5 @@
 import Control from './common/control';
+import KeyboardState from './keyboardState';
 import Key from './keys/key';
 
 class Board extends Control {
@@ -6,25 +7,19 @@ class Board extends Control {
   onNextLanguage: () => void;
   onBackspace: () => void;
 
-  constructor(parentNode: HTMLElement, boardConfig: Record<string, string>, onInput: (char: string) => void) {
+  constructor(parentNode: HTMLElement, boardConfig: Record<string, string>, state: KeyboardState) {
     super(parentNode);
     for (let keyCode in boardConfig) {
       let key: Key = null;
       switch (keyCode) {
         case 'Lang':
-          key = new Key(this.node, boardConfig[keyCode], (char) => {
-            this.onNextLanguage();
-          });
+          key = new Key(this.node, boardConfig[keyCode], state);
           break;
         case 'Backspace':
-          key = new Key(this.node, boardConfig[keyCode], (char) => {
-            this.onBackspace();
-          });
+          key = new Key(this.node, boardConfig[keyCode], state);
           break;
         default:
-          key = new Key(this.node, boardConfig[keyCode], (char) => {
-            onInput(char);
-          });
+          key = new Key(this.node, boardConfig[keyCode], state);
       }
       this.keyMap[keyCode] = key;
     }
