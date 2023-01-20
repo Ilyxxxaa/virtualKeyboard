@@ -34,23 +34,18 @@ class Keyboard extends Control {
     this.output = new Output(this.node);
     this.board = new Board(this.node, layout, state);
 
-    // this.board.onNextLanguage = () => {
-    //   this.langIndex = (this.langIndex + 1) % this.languages.length;
-    //   this.board.setLanguage(this.languages[this.langIndex]);
-    // };
-
-    // this.board.onBackspace = () => {
-    //   this.output.content = this.output.content.slice(0, -1);
-    // };
-
     document.addEventListener('keydown', (e) => {
+      e.preventDefault();
       console.log(e.code);
       this.board.handleDown(e.code);
+      // this.output.autofocusHandle();
     });
 
     document.addEventListener('keyup', (e) => {
+      e.preventDefault();
       console.log(e.code);
       this.board.handleUp(e.code);
+      this.output.node.focus();
     });
 
     update(state.data);

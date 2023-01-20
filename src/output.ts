@@ -5,7 +5,9 @@ class Output extends Control {
 
   set content(value: string) {
     // this._content = value;
-    this.node.textContent = value;
+    console.log(this.node);
+    (this.node as HTMLTextAreaElement).value = value;
+    console.dir(this.node);
   }
 
   // get content() {
@@ -13,7 +15,7 @@ class Output extends Control {
   // }
 
   constructor(parentNode: HTMLElement) {
-    super(parentNode, 'div', 'keyboard__output');
+    super(parentNode, 'textarea', 'keyboard__output');
     // this._content = '';
   }
 }
