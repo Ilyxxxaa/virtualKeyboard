@@ -1,0 +1,107 @@
+.keyboard {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.keyboard__output {
+  max-width: 700px;
+  width: 100%;
+  height: 90px;
+  margin: 100px auto 20px;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  background-color: #f7f7f7;
+  transition: 0.2s;
+  resize: none;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.board {
+  background-color: #e7e7e7;
+  font-family: 'Roboto Condensed', sans-serif;
+  max-width: 1045px;
+  margin: 20px auto;
+}
+
+.keyboard__row {
+  display: flex;
+}
+
+.key {
+  margin: 4px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  background-color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.key_tab {
+  width: 84px;
+}
+
+.key_capsLock {
+  width: 140px;
+  position: relative;
+}
+
+.key_space {
+  width: 480px;
+}
+
+.key_enter {
+  width: 140px;
+}
+
+.key_shift {
+  width: 140px;
+}
+
+.key_backspace {
+  width: 153px;
+}
+
+.key_lang {
+  width: 72px;
+}
+
+.key_tab {
+  width: 84px;
+}
+
+.keyboard__key-down {
+  transform: scale(0.9);
+  background-color: rgb(211, 208, 208);
+}
+
+.keyboard__key-hover {
+  background-color: rgb(211, 208, 208);
+}
+
+.descr {
+  font-family: 'Roboto Condensed', sans-serif;
+  &__title {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+    // padding-top: 20px;
+  }
+  &__make {
+    font-size: 20px;
+  }
+  &__lang {
+    font-size: 20px;
+    font-style: italic;
+    padding-top: 10px;
+  }
+}
