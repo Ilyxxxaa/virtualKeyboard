@@ -5,12 +5,17 @@ import KeyBackspace from './keys/keyBackspace';
 import KeyLang from './keys/keyLang';
 import KeyCapsLock from './keys/keyCapsLock';
 import KeyShift from './keys/keyShift';
+import KeyAlt from './keys/keyAlt';
+import KeySpace from './keys/keySpace';
 
 const classMap: Record<string, typeof Key> = {
   Backspace: KeyBackspace,
   ShiftLeft: KeyShift,
   ShiftRight: KeyShift,
   CapsLock: KeyCapsLock,
+  AltRight: KeyAlt,
+  AltLeft: KeyAlt,
+  Space: KeySpace,
   Lang: KeyLang,
 };
 
