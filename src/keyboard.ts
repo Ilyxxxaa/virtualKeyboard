@@ -16,15 +16,12 @@ class Keyboard extends Control {
       const currentBoard = state.languages[data.langIndex];
       if (data.shift) {
         this.board.setLanguage(currentBoard.shift);
-        console.log('Перестроилось на шифт');
       }
       if (data.caps) {
         this.board.setLanguage(currentBoard.caps);
-        console.log('Перестроилось на капс');
       }
       if (!data.caps && !data.shift) {
         this.board.setLanguage(currentBoard.base);
-        console.log('Перестроилось на обычный');
       }
     };
     state.onChange.add(update);
@@ -33,16 +30,22 @@ class Keyboard extends Control {
 
     document.addEventListener('keydown', (e) => {
       e.preventDefault();
-      console.log(e.code);
       this.board.handleDown(e.code);
-      // this.output.autofocusHandle();
     });
 
     document.addEventListener('keyup', (e) => {
       e.preventDefault();
-      console.log(e.code);
       this.board.handleUp(e.code);
       this.output.node.focus();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.shiftKey && e.altKey) {
+        state.data = {
+          ...state.data,
+          langIndex: (state.data.langIndex + 1) % state.languages.length,
+        };
+      }
     });
 
     update(state.data);
