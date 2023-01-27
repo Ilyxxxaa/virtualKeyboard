@@ -1,6 +1,11 @@
+import KeyboardState from '../keyboardState';
 import Key from './key';
 
 class KeyCapsLock extends Key {
+  constructor(parentNode: HTMLElement, data: string, protected state: KeyboardState) {
+    super(parentNode, data, state, 'key key_capsLock');
+  }
+
   protected input() {
     console.log('CAPS');
     const state = this.state;

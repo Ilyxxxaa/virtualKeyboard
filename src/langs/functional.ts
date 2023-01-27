@@ -1,7 +1,7 @@
 export const functional = {
   Tab: 'Tab',
   CapsLock: 'Caps',
-  Enter: '\n',
+  Enter: 'Enter',
   ShiftLeft: 'Shift',
   ArrowUp: '\u2191',
   ShiftRight: 'Shift',
@@ -14,4 +14,5 @@ export const functional = {
   ArrowDown: '\u2193',
   ArrowRight: '\u2192',
   Backspace: 'Backspace',
+  Del: 'Del',
 };

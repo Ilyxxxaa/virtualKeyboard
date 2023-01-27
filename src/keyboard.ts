@@ -1,19 +1,16 @@
 import Control from './common/control';
 import Board from './board';
 import Output from './output';
-// import { board } from './common/langs';
-// import { boardEn } from './common/langs';
 import KeyboardState, { IKeyboardData } from './keyboardState';
+import { descr } from './description';
 import layout from './langs/layout';
 
 class Keyboard extends Control {
   private board: Board;
   private output: Output;
 
-  // private langIndex = 0;
-
   constructor(parentNode: HTMLElement, state: KeyboardState) {
-    super(parentNode);
+    super(parentNode, 'div', 'keyboard', descr);
     const update = (data: IKeyboardData) => {
       this.output.content = data.content;
       const currentBoard = state.languages[data.langIndex];

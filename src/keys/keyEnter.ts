@@ -1,17 +1,17 @@
 import KeyboardState from '../keyboardState';
 import Key from './key';
 
-class KeyBackspace extends Key {
+class KeyEnter extends Key {
   constructor(parentNode: HTMLElement, data: string, protected state: KeyboardState) {
-    super(parentNode, data, state, 'key key_backspace');
+    super(parentNode, data, state, 'key key_enter');
   }
 
   protected input() {
     const state = this.state;
     state.data = {
       ...state.data,
-      content: state.data.content.slice(0, -1),
+      content: state.data.content + '\n',
     };
   }
 }
-export default KeyBackspace;
+export default KeyEnter;

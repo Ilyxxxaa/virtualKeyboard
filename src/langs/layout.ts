@@ -31,6 +31,7 @@ export const layout = [
     'BracketLeft',
     'BracketRight',
     'Backslash',
+    'Del',
   ],
 
   ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter'],

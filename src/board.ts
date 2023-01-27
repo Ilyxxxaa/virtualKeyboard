@@ -7,6 +7,8 @@ import KeyCapsLock from './keys/keyCapsLock';
 import KeyShift from './keys/keyShift';
 import KeyAlt from './keys/keyAlt';
 import KeySpace from './keys/keySpace';
+import KeyTab from './keys/keyTab';
+import KeyEnter from './keys/keyEnter';
 
 const classMap: Record<string, typeof Key> = {
   Backspace: KeyBackspace,
@@ -16,35 +18,22 @@ const classMap: Record<string, typeof Key> = {
   AltRight: KeyAlt,
   AltLeft: KeyAlt,
   Space: KeySpace,
+  Tab: KeyTab,
   Lang: KeyLang,
+  Enter: KeyEnter,
 };
 
 class Board extends Control {
   private keyMap: Record<string, Key> = {};
-  // onNextLanguage: () => void;
-  // onBackspace: () => void;
 
   constructor(parentNode: HTMLElement, layoutConfig: Array<string[]>, state: KeyboardState) {
-    super(parentNode);
-    // for (let keyCode in boardConfig) {
-    // let key: Key;
-    // switch (keyCode) {
-    //   case 'Lang':
-    //     key = new KeyLang(this.node, boardConfig[keyCode], state);
-    //     break;
-    //   case 'Backspace':
-    //     key = new KeyBackspace(this.node, boardConfig[keyCode], state);
-    //     break;
-    //   default:
-    //     key = new Key(this.node, boardConfig[keyCode], state);
-    // }
+    super(parentNode, 'div', 'board');
 
-    // }
     layoutConfig.forEach((row) => {
       const rowView = new Control(this.node, 'div', 'keyboard__row');
       row.forEach((keyCode) => {
         const KeyConstructor = classMap[keyCode] || Key;
-        const key = new KeyConstructor(rowView.node, keyCode, state);
+        const key = new KeyConstructor(rowView.node, keyCode, state, 'key');
         this.keyMap[keyCode] = key;
       });
     });

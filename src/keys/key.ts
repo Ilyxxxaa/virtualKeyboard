@@ -2,15 +2,13 @@ import Control from '../common/control';
 import KeyboardState from '../keyboardState';
 
 class Key extends Control {
-  // onInput: (char: string) => void;
   private data: string;
 
-  constructor(parentNode: HTMLElement, data: string, protected state: KeyboardState) {
-    super(parentNode, 'div', 'keyboard__key');
+  constructor(parentNode: HTMLElement, data: string, protected state: KeyboardState, className: string) {
+    super(parentNode, 'div', className);
     this.node.textContent = data;
     this.data = data;
-    // this.onInput = onInput;
-    // 3.11
+
     this.node.onmousedown = () => {
       this.down();
     };
